@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0d1f4e">
+<title>Araujo & Augusto | Advogados e Associados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1f4e;
+    --navy-light: #162a66;
+    --gold: #b89650;
+    --gold-light: #d4b26a;
+    --white: #ffffff;
+    --off-white: #f4f3f0;
+    --text-body: #2a2a2a;
+  }
+
+  html, body {
+    min-height: 100%;
+    background: var(--off-white);
+    font-family: 'Jost', sans-serif;
+    color: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 52px 28px 44px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: 'A';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 340px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    line-height: 1;
+    letter-spacing: -20px;
+  }
+
+  .logo-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--gold);
+    background: var(--navy-light);
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .logo-box svg {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    line-height: 1.15;
+    animation: fadeDown 0.7s 0.1s ease both;
+  }
+
+  .hero-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 8px;
+    animation: fadeDown 0.7s 0.2s ease both;
+  }
+
+  .hero-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-top: 14px;
+    letter-spacing: 0.3px;
+    animation: fadeDown 0.7s 0.3s ease both;
+  }
+
+  .gold-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 16px auto 0;
+    animation: scaleX 0.7s 0.4s ease both;
+    transform-origin: center;
+  }
+
+  /* ── BODY ── */
+  .page-body {
+    padding: 28px 20px 48px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 9.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin: 28px 0 14px 4px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 15px 20px;
+    border: 1.5px solid #ddd8cf;
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--navy);
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.22s ease;
+    letter-spacing: 0.2px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn:hover, .btn:active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(13,31,78,0.18);
+  }
+
+  .btn:hover .btn-icon, .btn:active .btn-icon {
+    background: rgba(255,255,255,0.12);
+    color: var(--gold);
+  }
+
+  .btn:hover svg path, .btn:hover svg circle, .btn:hover svg rect,
+  .btn:active svg path, .btn:active svg circle, .btn:active svg rect {
+    stroke: var(--gold);
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.22s ease;
+  }
+
+  .btn-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-icon svg path, .btn-icon svg circle, .btn-icon svg rect,
+  .btn-icon svg polyline, .btn-icon svg line {
+    stroke: var(--navy);
+    transition: stroke 0.22s ease;
+  }
+
+  .btn-label {
+    flex: 1;
+    text-align: left;
+  }
+
+  /* ── AREAS CARDS ── */
+  .areas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .area-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 14px;
+    border: 1.5px solid #ddd8cf;
+    border-radius: 4px;
+    background: var(--white);
+    text-decoration: none;
+    color: var(--navy);
+    font-family: 'Jost', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    transition: all 0.22s ease;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .area-card:hover, .area-card:active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(13,31,78,0.18);
+  }
+
+  .area-card:hover svg path, .area-card:hover svg circle,
+  .area-card:active svg path, .area-card:active svg circle {
+    stroke: var(--gold);
+  }
+
+  .area-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.22s ease;
+  }
+
+  .area-card:hover .area-icon, .area-card:active .area-icon {
+    background: rgba(255,255,255,0.12);
+  }
+
+  .area-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .area-icon svg path, .area-icon svg circle, .area-icon svg rect {
+    stroke: var(--navy);
+    transition: stroke 0.22s ease;
+  }
+
+  /* ── SOCIAL ── */
+  .social-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding: 16px 10px;
+    border: 1.5px solid #ddd8cf;
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--navy);
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.22s ease;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .social-btn:hover, .social-btn:active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .social-btn:hover svg path, .social-btn:hover svg rect,
+  .social-btn:active svg path, .social-btn:active svg rect {
+    stroke: var(--gold);
+  }
+
+  .social-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .social-btn svg path, .social-btn svg rect {
+    stroke: var(--navy);
+    transition: stroke 0.22s ease;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .footer-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .footer-item + .footer-item {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-item svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .footer-item svg path {
+    stroke: var(--gold);
+  }
+
+  .footer-copy {
+    margin-top: 24px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleX {
+    from { opacity: 0; transform: scaleX(0); }
+    to   { opacity: 1; transform: scaleX(1); }
+  }
+
+  /* stagger delays applied via JS below */
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="hero">
+  <div class="logo-box">
+    <!-- Logo A mark (SVG replicado do logo original) -->
+    <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="23,4 42,42 32,42 23,22 14,42 4,42" fill="white" opacity="0.95"/>
+    </svg>
+  </div>
+
+  <div class="hero-name">Araujo &amp; Augusto</div>
+  <div class="hero-sub">Advogados e Associados</div>
+  <div class="hero-tagline">Assessoria jurídica com ética e transparência</div>
+  <div class="gold-rule"></div>
+</div>
+
+<!-- ═══════════ BODY ═══════════ -->
+<div class="page-body">
+
+  <!-- CONTATO -->
+  <div class="section-label">Contato</div>
+
+  <a href="https://SEU-SITE-AQUI.com.br" class="btn" target="_blank">
+    <span class="btn-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    </span>
+    <span class="btn-label">Site oficial</span>
+  </a>
+
+  <a href="https://wa.me/5511XXXXXXXXX?text=Olá,%20gostaria%20de%20mais%20informações" class="btn" target="_blank">
+    <span class="btn-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+      </svg>
+    </span>
+    <span class="btn-label">Fale no WhatsApp</span>
+  </a>
+
+  <a href="tel:+551139390844" class="btn">
+    <span class="btn-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/>
+      </svg>
+    </span>
+    <span class="btn-label">Ligar agora · (11) 3939-0844</span>
+  </a>
+
+  <a href="#" class="btn" id="btn-vcard">
+    <span class="btn-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+    </span>
+    <span class="btn-label">Salvar contato</span>
+  </a>
+
+  <a href="https://maps.google.com/?q=Rua+Serra+do+Botucatu+660+Tatuapé+São+Paulo" class="btn" target="_blank">
+    <span class="btn-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+    </span>
+    <span class="btn-label">Ver localização no mapa</span>
+  </a>
+
+  <!-- ÁREAS DE ATUAÇÃO -->
+  <div class="section-label">Áreas de Atuação</div>
+
+  <div class="areas-grid">
+    <a href="https://SEU-SITE-AQUI.com.br/direito-de-familia" class="area-card" target="_blank">
+      <span class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </span>
+      Direito de Família
+    </a>
+
+    <a href="https://SEU-SITE-AQUI.com.br/direito-do-trabalho" class="area-card" target="_blank">
+      <span class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+        </svg>
+      </span>
+      Direito do Trabalho
+    </a>
+
+    <a href="https://SEU-SITE-AQUI.com.br/recuperacao-de-credito" class="area-card" target="_blank">
+      <span class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </span>
+      Recuperação de Crédito
+    </a>
+
+    <a href="https://SEU-SITE-AQUI.com.br/direito-empresarial" class="area-card" target="_blank">
+      <span class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+      </span>
+      Direito Empresarial
+    </a>
+
+    <a href="https://SEU-SITE-AQUI.com.br/direito-imobiliario" class="area-card" target="_blank" style="grid-column: 1 / -1;">
+      <span class="area-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </span>
+      Direito Imobiliário / Condominial
+    </a>
+  </div>
+
+  <!-- REDES SOCIAIS -->
+  <div class="section-label">Redes Sociais</div>
+
+  <div class="social-row">
+    <a href="https://linkedin.com/company/SEU-LINKEDIN" class="social-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+      </svg>
+      LinkedIn
+    </a>
+
+    <a href="https://facebook.com/SEU-FACEBOOK" class="social-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+      </svg>
+      Facebook
+    </a>
+
+    <a href="https://instagram.com/SEU-INSTAGRAM" class="social-btn" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/>
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.07 6.07l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/>
+    </svg>
+    (11) 3939-0844
+  </div>
+  <div class="footer-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+    </svg>
+    Rua Serra do Botucatu, 660 – 11º andar<br>Tatuapé – São Paulo / SP
+  </div>
+  <p class="footer-copy">© 2025 Araujo & Augusto Advogados</p>
+</footer>
+
+<script>
+// ── vCard download ──
+document.getElementById('btn-vcard').addEventListener('click', function(e){
+  e.preventDefault();
+  const vcard = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'FN:Araujo & Augusto Advogados',
+    'ORG:Araujo & Augusto Advogados e Associados',
+    'TEL;TYPE=WORK,VOICE:+551139390844',
+    'ADR;TYPE=WORK:;;Rua Serra do Botucatu 660 - 11 andar;São Paulo;SP;;Brasil',
+    'URL:https://SEU-SITE-AQUI.com.br',
+    'EMAIL:contato@SEU-EMAIL-AQUI.com.br',
+    'END:VCARD'
+  ].join('\n');
+  const blob = new Blob([vcard], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'AraujoAugusto.vcf';
+  a.click(); URL.revokeObjectURL(url);
+});
+
+// ── Stagger animation delays ──
+const animated = document.querySelectorAll('.btn, .area-card, .social-btn, .section-label');
+animated.forEach((el, i) => {
+  el.style.animationDelay = (0.05 * i + 0.3) + 's';
+});
+</script>
+</body>
+</html>
